@@ -1,3 +1,10 @@
+###
+copyright: (c) 2012 by Fireworks Project Inc. (http://www.fireworksproject.com).
+
+Unless otherwise indicated, all source code is licenced under the MIT license.
+See MIT-LICENSE in the root directory for details.
+###
+
 HTTPS = require 'https'
 QS = require 'querystring'
 
