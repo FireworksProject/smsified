@@ -1,0 +1,8 @@
+{
+    "name": "q-smsified",
+    "version": "0.1.0",
+    "description": "Q API for SMSified.com REST service",
+    "dependencies": {
+        "q": "0.8.2"
+    }
+}
