@@ -20,4 +20,4 @@ TAGS
 node_modules/
 
 # And don't track the dist directory
-dist/
+smsified/
