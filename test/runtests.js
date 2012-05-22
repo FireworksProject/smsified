@@ -5,7 +5,7 @@ var FS = require('fs')
   , TRM = require('treadmill')
   , LIVE = process.argv[2]
 
-global.INDEX = '../smsified/index';
+global.INDEX = '../dist/index';
 
 if (LIVE) {
     global.USERNAME = process.argv[2]

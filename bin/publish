@@ -3,5 +3,5 @@
 version=$1
 tarball="smsified-$version.tar.gz"
 
-tar -czf "$tarball" "smsified/"
+tar -C "./dist" -czf "$tarball" "./"
 scp "$tarball" git@saks.fireworksproject.com:~/

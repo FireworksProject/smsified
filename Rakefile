@@ -2,7 +2,7 @@ ROOT = File.dirname(__FILE__)
 
 task :default => :build
 
-directory 'smsified'
+directory 'dist'
 
 file 'node_modules/coffee-script' do
     npm_install 'coffee-script'
@@ -16,36 +16,36 @@ file 'node_modules/q' do
     npm_install 'q'
 end
 
-file 'smsified/index.js' => ['index.coffee', 'smsified'] do |task|
+file 'dist/index.js' => ['index.coffee', 'dist'] do |task|
     brew_javascript task.prerequisites.first, task.name
 end
 
-file 'smsified/MIT-LICENSE' => ['MIT-LICENSE', 'smsified'] do |task|
+file 'dist/MIT-LICENSE' => ['MIT-LICENSE', 'dist'] do |task|
     FileUtils.cp task.prerequisites.first, task.name
 end
 
-file 'smsified/package.json' => ['package.json', 'smsified'] do |task|
+file 'dist/package.json' => ['package.json', 'dist'] do |task|
     FileUtils.cp task.prerequisites.first, task.name
-    Dir.chdir('smsified')
+    Dir.chdir('dist')
     sh 'npm install' do |ok, id|
         ok or fail "npm could not install arrow"
     end
     Dir.chdir(ROOT)
 end
 
-desc "Build into the smsified/ directory for testing and distribution"
+desc "Build into the dist/ directory for testing and distribution"
 build_deps = [
-    'smsified/MIT-LICENSE',
-    'smsified/package.json',
-    'smsified/index.js'
+    'dist/MIT-LICENSE',
+    'dist/package.json',
+    'dist/index.js'
 ]
 task :build => build_deps do
     puts "Build done"
 end
 
-desc "Remove the smsified/ directory"
+desc "Remove the dist/ directory"
 task :clean do
-    rm_rf 'smsified'
+    rm_rf 'dist'
     rm_rf 'node_modules'
 end
 
