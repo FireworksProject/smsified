@@ -77,8 +77,8 @@ task :testlive, testlive_args => [:devsetup, :build] do |task, args|
 end
 
 desc "Publish tarball to server for deployment"
-task :publish => :build do
-    sh "bin/publish" do |ok, id|
+task :publish, [:version] => :build do |task, args|
+    sh "bin/publish #{args[:version]}" do |ok, id|
         ok or fail "could not publish"
     end
 end

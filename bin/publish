@@ -1,7 +1,7 @@
 #!/bin/bash
 
-tarball="smsified.tar.gz"
+version=$1
+tarball="smsified-$version.tar.gz"
 
 tar -czf "$tarball" "smsified/"
 scp "$tarball" git@saks.fireworksproject.com:~/
-rm "$tarball"

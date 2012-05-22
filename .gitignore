@@ -21,3 +21,4 @@ node_modules/
 
 # And don't track the dist directory
 smsified/
+*.tar.gz
